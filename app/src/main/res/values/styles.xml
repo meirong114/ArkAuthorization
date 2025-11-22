@@ -1,0 +1,20 @@
+<resources>
+    <!-- 使用原生Android主题 -->
+    <style name="AppTheme" parent="android:Theme.Holo.Light.NoActionBar">
+        <!-- 自定义主题属性 -->
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+        <!-- 全屏设置 -->
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="Theme.VideoPlayer" parent="android:Theme.Holo.NoActionBar">
+        <!-- 使用原生Android属性 -->
+        <item name="android:colorPrimary">@color/purple_500</item>
+        <item name="android:colorPrimaryDark">@color/purple_700</item>
+        <item name="android:colorAccent">@color/teal_200</item>
+        <!-- 全屏设置 -->
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>

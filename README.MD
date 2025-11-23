@@ -15,3 +15,6 @@
 
 ### 有野要讲？
 > 你可以去到Issues里面慢慢讲
+
+### 自己来整？
+> chmod u+x ./gradlew && ./gradlew build

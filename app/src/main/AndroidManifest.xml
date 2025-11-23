@@ -14,7 +14,7 @@
         android:theme="@style/Theme.VideoPlayer">
 
         <activity
-            android:name=".VideoPlayerActivity"
+            android:name="SplashActivity"
             android:screenOrientation="portrait"
             android:label="@string/launcher_name"
             android:icon="@drawable/prts"
@@ -36,15 +36,23 @@
 
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
 
-                </intent-filter>
+            </intent-filter>
 
         </activity>
 
-        <activity 
+        <activity
             android:name="WakeupActivity"
             android:exported="true"/>
-            
-        <activity android:name="MainActivity" />
+
+        <activity android:name="MainActivity"/>
+
+        <activity
+            android:exported="true"
+            android:name="prts.user.authorization0.SecondaryStartup"/>
+
+        <service android:name="prts.user.authorization0.StartMainService"/>
+
+        <activity android:name="prts.user.authorization0.VideoPlayerActivity"/>
 
     </application>
 

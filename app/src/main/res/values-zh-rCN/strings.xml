@@ -2,4 +2,7 @@
 <resources>
     <string name="app_name">通行认证OS</string>
     <string name="launcher_name">通行认证</string>
+    <string name="dc_name">罗德岛通行认证</string>
+    <string name="dc_subname">干员数据管理器</string>
+    <string name="provider_notice">OPERATORS_FILE是干员数据存储目录，将后缀为USR的文件拷贝至此处即可。</string>
 </resources>

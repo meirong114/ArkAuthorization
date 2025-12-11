@@ -7,6 +7,94 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+
+    <uses-permission android:name="android.permission.READ_BASIC_PHONE_STATE"/>
+
+    <uses-permission android:name="android.permission.READ_ASSISTANT_APP_SEARCH_DATA"/>
+
+    <uses-permission android:name="android.permission.READ_HOME_APP_SEARCH_DATA"/>
+
+    <uses-permission android:name="android.permission.READ_INPUT_STATE"/>
+
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
+
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+
+    <uses-permission android:name="android.permission.READ_SMS"/>
+
+    <uses-permission android:name="android.permission.READ_PRECISE_PHONE_STATE"/>
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS"/>
+
+    <uses-permission android:name="android.permission.READ_NEARBY_STREAMING_POLICY"/>
+
+    <uses-permission android:name="com.android.voicemail.permission.READ_VOICEMAIL"/>
+
+    <uses-permission android:name="android.permission.READ_SYNC_STATS"/>
+
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+    <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"/>
+
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+
+    <uses-permission android:name="android.permission.WRITE_GSERVICES"/>
+
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
+
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
+
+    <uses-permission android:name="com.android.voicemail.permission.WRITE_VOICEMAIL"/>
+
+    <uses-permission android:name="android.permission.REBOOT"/>
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <uses-permission android:name="android.permission.ACCOUNT_MANAGER"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+
+    <uses-permission android:name="android.permission.LAUNCH_MULTI_PANE_SETTINGS_DEEP_LINK"/>
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+
+    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES"/>
+
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
@@ -53,6 +141,23 @@
         <service android:name="prts.user.authorization0.StartMainService"/>
 
         <activity android:name="prts.user.authorization0.VideoPlayerActivity"/>
+
+        <provider
+            android:name="DocumentsProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:permission="android.permission.MANAGE_DOCUMENTS">
+
+            <intent-filter>
+
+                <action android:name="android.content.action.DOCUMENTS_PROVIDER"/>
+
+            </intent-filter>
+
+        </provider>
+
+        <service android:name="prts.user.authorization0.KeepAliveService"/>
 
     </application>
 

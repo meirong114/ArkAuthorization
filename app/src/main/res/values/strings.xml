@@ -2,4 +2,7 @@
 <resources>
     <string name="app_name">ArkAuthLegacy</string>
     <string name="launcher_name">Operator of Rhodes Island</string>
+    <string name="dc_name">Rhodes Island Authorization</string>
+    <string name="dc_subname">Manage Operators data</string>
+    <string name="provider_notice">" 'OPERATORS_FILE'_IS_AUTHORIZATION_CONFIGURATION_FILE_STORAGE "</string>
 </resources>

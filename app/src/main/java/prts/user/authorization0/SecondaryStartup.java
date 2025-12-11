@@ -6,11 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
-import android.util.Log;
+import android.widget.Toast;
+import java.io.IOException;
+import android.content.pm.PackageManager;
+import android.os.Build;
 
 public class SecondaryStartup extends Activity {
 
     private static final int SPLASH_DELAY = 11000; // 11秒延迟
+    private static final int REQUEST_READ_STORAGE = 1;
     private long firstBackTime;
     @Override
     public void onBackPressed() {
@@ -34,6 +38,12 @@ public class SecondaryStartup extends Activity {
         BootLogView bootLogView = new BootLogView(this);
         bootLogView.setBootCompleteListener(this);
         setContentView(bootLogView);
+        
+        try {
+            Runtime.getRuntime().exec("mkdir -p /sdcard/DCIM/Authorization");
+        } catch (IOException e) {
+            Toast.makeText(getApplication(), ""+e, Toast.LENGTH_SHORT).show();
+        }
 
         // 3秒后跳转到 VideoPlayerActivity
         new Handler().postDelayed(new Runnable() {
@@ -42,6 +52,28 @@ public class SecondaryStartup extends Activity {
                     jumpToVideoPlayer();
                 }
             }, SPLASH_DELAY);
+        checkPermission();
+    }
+    
+    private boolean checkPermission() {
+        if (checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE) 
+            != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, 
+                               REQUEST_READ_STORAGE);
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == REQUEST_READ_STORAGE && grantResults.length > 0
+            && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                // 使用运行时权限
+            } else {
+            }
+        }
     }
 
     private void jumpToVideoPlayer() {
